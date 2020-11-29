@@ -1,18 +1,26 @@
-import { Card, Col, Row } from "antd";
-import CoursesTable from "./CoursesTable";
-
+import { Card, Col, Row, Typography, Tag } from "antd";
+import CoursesList from "../Courses/CoursesList";
+import CoursesTable from "../Courses/CoursesTable";
+const { Title } = Typography;
 const Dashboard = () => {
   return (
-    <div className="site-card-wrapper">
+    <div className="">
       <Row gutter={[16, 16]}>
         <Col span={24}>
-            <Card title="Card title">Welcome to CodeHub</Card>
+            <Card>
+             <Title>
+             Welcome to CodeHub
+             </Title>
+            </Card>
         </Col>
       </Row>
       <Row gutter={[16, 16]}>
         <Col span={6}>
-          <Card title="Students" bordered={false}>
-            Card content
+          <Card bordered={true}>
+          <h3 className="widget-title">{'Students:'.toUpperCase()}</h3>
+          <Tag color="geekblue">
+              {'1234'.toUpperCase()}
+            </Tag>
           </Card>
         </Col>
         <Col span={6}>
