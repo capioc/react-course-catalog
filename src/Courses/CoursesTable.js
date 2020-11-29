@@ -1,6 +1,7 @@
 import { Table, Tag, Space, Button, Spin } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import useCourses from "./useCourses";
+import { Link } from 'react-router-dom';
 
 const columns = [
   {
@@ -35,9 +36,10 @@ const columns = [
   },
   {
     title: 'Action',
-    key: 'action',
-    render: (text, record) => (
-        <Button type="primary">TODO:View details</Button>
+    key: 'id',
+    dataIndex: 'id',
+    render: () => (
+        <Link to="/courses/${id}"><Button type="primary">View details</Button></Link>
     ),
   },
 ];
