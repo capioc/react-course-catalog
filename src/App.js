@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from './Dashboard/Dashboard';
 import CoursesList from './Courses/CoursesList';
 import AddCourse from './Courses/AddCourse';
+import CourseDetails from './Courses/CourseDetail';
 
 const { Header, Content } = Layout;
 
@@ -53,8 +54,11 @@ const App = () => {
             >
               <Router>
                 <Switch>
-                  <Route path="/courses/add">
+                  <Route exact path="/courses/add">
                     <AddCourse></AddCourse>
+                  </Route>
+                <Route path="/courses/:id">
+                    <CourseDetails/>
                   </Route>
                   <Route path="/courses">
                     <CoursesList />
