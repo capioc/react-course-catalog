@@ -3,14 +3,28 @@
   width: 120px;
   height: 31px;
   margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  line-height: 32px;
+  color: white;
+  font-size: 24px;
 }
 
 .site-layout-background {
-  background: #ececec;
+  background: rgb(237, 239, 244);
 }
 
-.site-card-wrapper {
-  padding: 30px;
-  background: #ececec;
+.site-card {
+  /* padding: 30px; */
+  /* background: #ececec; */
+  box-shadow: 0 5px 30px -15px rgba(0,0,0,.2);
+  border-radius: 5px;
+}
+
+.widget-title {
+  display: inline;
+  margin-right: 8px;
+}
+
+.ant-tag {
+  font-size: 14px;
+  font-weight: 600;
 }

@@ -10,9 +10,12 @@ const Dashboard = () => {
     <div className="">
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <Card>
+          <Card className="site-card">
             <Title>
-              Welcome to CodeHub
+              Welcome to CodeHub Dashboard!
+             </Title>
+             <Title level={4}>
+              Manage everything and have fun
              </Title>
           </Card>
         </Col>
@@ -20,7 +23,7 @@ const Dashboard = () => {
       <Widgets></Widgets>
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <CoursesTable></CoursesTable>
+          <CoursesTable className="site-card"></CoursesTable>
         </Col>
       </Row>
     </div>

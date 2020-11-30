@@ -26,8 +26,9 @@ const CoursesList = () => {
             <Col md={{ span: 6 }} xs={{ span: 12 }}>
             <Card
               title={course.title}
-              headStyle={{backgroundColor: "aqua", fontSize:"18px"}}
+              headStyle={{backgroundColor: "#1d4367", color:"white", fontSize:"18px"}}
               cover={ <img alt="example" src={course.imagePath} /> }
+              className="site-card"
             >
               <p>
                 Price: <strong>{course.price.normal}</strong> | 

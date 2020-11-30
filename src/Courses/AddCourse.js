@@ -92,8 +92,8 @@ const AddCourse = () => {
         </Form.Item>
         <hr/>
 
-        <Form.Item label="Button">
-          <Button htmlType="submit">Button</Button>
+        <Form.Item>
+          <Button htmlType="submit" type="primary">Submit</Button>
         </Form.Item>
       </Form>
     </>

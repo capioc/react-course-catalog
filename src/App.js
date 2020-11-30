@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import "./App.css";
 import { Layout, Menu } from 'antd';
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
@@ -11,67 +11,66 @@ import CourseDetails from './Courses/CourseDetail';
 const { Header, Content } = Layout;
 
 const App = () => {
+  const [current, setCurrent] = useState('1');
+
+  const handleClick = e => {
+    console.log('click ', e);
+    setCurrent(e.key);
+  };
+
   return (
     <div className="App">
-      <Layout>
-        <Header className="header">
-          <Router>
-            <Link to="/">
-              <div className="logo" />
-            </Link>
+      <Router>
 
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+        <Layout className="site-layout-background">
+          <Header className="header">
+
+
+              <div className="logo">CodeHub</div>
+
+
+            <Menu theme="dark" mode="horizontal" onClick={handleClick} selectedKeys={[current]}>
               <Menu.Item key="1">
-                <Link to="/courses">Courses</Link>
+              <Link to="/">Home</Link>
               </Menu.Item>
               <Menu.Item key="2">
+              <Link to="/courses">Courses</Link>
+              </Menu.Item>
+              <Menu.Item key="3">
                 <Link to="/courses/add">Add Course</Link>
               </Menu.Item>
             </Menu>
-{/* 
-            <Switch>
-                  <Route path="/courses">
-                    <CoursesList />
-                  </Route>
-                  <Route path="/courses/add">
 
-                  </Route>
-                  <Route exact path="/">
-                    <Dashboard />
-                  </Route>
-                </Switch> */}
-          </Router>
-        </Header>
+          </Header>
 
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout className="site-layout-background" style={{ width:'80%', margin:'auto', minWidth:'70%', padding: '0 24px 24px' }}>
             <Content
-              className="site-layout-background"
               style={{
                 padding: 24,
                 margin: 0,
                 minHeight: 280,
               }}
             >
-              <Router>
-                <Switch>
-                  <Route exact path="/courses/add">
-                    <AddCourse></AddCourse>
-                  </Route>
+
+              <Switch>
+                <Route exact path="/courses/add">
+                  <AddCourse></AddCourse>
+                </Route>
                 <Route path="/courses/:id">
-                    <CourseDetails/>
-                  </Route>
-                  <Route path="/courses">
-                    <CoursesList />
-                  </Route>
-                  <Route exact path="/">
-                    <Dashboard />
-                  </Route>
-                </Switch>
-              </Router>
+                  <CourseDetails />
+                </Route>
+                <Route path="/courses">
+                  <CoursesList />
+                </Route>
+                <Route exact path="/">
+                  <Dashboard />
+                </Route>
+              </Switch>
 
             </Content>
           </Layout>
         </Layout>
+      </Router>
     </div>
   );
 }

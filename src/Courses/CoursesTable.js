@@ -38,8 +38,8 @@ const columns = [
     title: 'Action',
     key: 'id',
     dataIndex: 'id',
-    render: () => (
-        <Link to="/courses/${id}"><Button type="primary">View details</Button></Link>
+    render: (id) => (
+        <Link to={`/courses/${id}`}><Button type="primary">View details</Button></Link>
     ),
   },
 ];
@@ -57,7 +57,7 @@ const CoursesTable = () => {
           <Spin size="large" />
         ) : (
         <Table 
-          className="courses-table" 
+          className="courses-table site-card" 
           title={() => {
             return (<h3><strong>Five newest courses</strong></h3>)
           }} 

@@ -7,7 +7,7 @@ const useCourse = ({ url, resource, format, id }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const fetchInstructors = async (id) => {
+    const fetchInstructor = async (id) => {
         const endpoint = `http://localhost:3001/instructors/${id}`;
         const res = await axios.get(endpoint);
         console.log('fetched I',res.data);
@@ -23,7 +23,7 @@ const useCourse = ({ url, resource, format, id }) => {
                 const res = await axios.get(endpoint);
                 const instructorsPromises = await res.data.instructors
                     .map((id) => {
-                        return fetchInstructors(id);
+                        return fetchInstructor(id);
                     })
                 const instructors = await Promise.all(instructorsPromises)
                 console.log(instructors)
