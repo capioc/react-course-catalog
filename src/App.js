@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import "./App.css";
 import { Layout, Menu } from 'antd';
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from './Dashboard/Dashboard';
 import CoursesList from './Courses/CoursesList';
 import AddCourse from './Courses/AddCourse';
@@ -11,12 +11,6 @@ import CourseDetails from './Courses/CourseDetail';
 const { Header, Content } = Layout;
 
 const App = () => {
-  const [current, setCurrent] = useState('1');
-
-  const handleClick = e => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
 
   return (
     <div className="App">
@@ -29,21 +23,24 @@ const App = () => {
               <div className="logo">CodeHub</div>
 
 
-            <Menu theme="dark" mode="horizontal" onClick={handleClick} selectedKeys={[current]}>
-              <Menu.Item key="1">
+            <Menu theme="dark" mode="horizontal" selectedKeys={[]}>
+              <Menu.Item key="home">
               <Link to="/">Home</Link>
               </Menu.Item>
-              <Menu.Item key="2">
+              <Menu.Item key="courses">
               <Link to="/courses">Courses</Link>
               </Menu.Item>
-              <Menu.Item key="3">
+              <Menu.Item key="courses/add">
                 <Link to="/courses/add">Add Course</Link>
               </Menu.Item>
             </Menu>
 
           </Header>
 
-          <Layout className="site-layout-background" style={{ width:'80%', margin:'auto', minWidth:'70%', padding: '0 24px 24px' }}>
+          <Layout className="site-layout-background" 
+            style={{ minHeight:'100vh', width:'80%', margin:'auto', minWidth:'70%', padding: '0 24px 24px' }}
+          >
+            
             <Content
               style={{
                 padding: 24,

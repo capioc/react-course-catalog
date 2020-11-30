@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
 import axios from 'axios';
 
-const useCourse = ({ url, resource, format, id }) => {
+const useCourse = ({ url, resource, id }) => {
     const [course, setCourse] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -10,9 +9,7 @@ const useCourse = ({ url, resource, format, id }) => {
     const fetchInstructor = async (id) => {
         const endpoint = `http://localhost:3001/instructors/${id}`;
         const res = await axios.get(endpoint);
-        console.log('fetched I',res.data);
         return res.data;
-        
     }
 
     useEffect(() => {

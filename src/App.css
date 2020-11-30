@@ -19,6 +19,12 @@
   border-radius: 5px;
 }
 
+.site-card .ant-card-head, .site-card .ant-table-title {
+  background-color: #1d4367;
+  /* color:white; */
+  font-size:18px;
+}
+
 .widget-title {
   display: inline;
   margin-right: 8px;
@@ -28,3 +34,4 @@
   font-size: 14px;
   font-weight: 600;
 }
+

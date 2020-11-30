@@ -9,15 +9,15 @@ const useCourses = ({ url, resource, format, page, limit }) => {
     const _page = page ? `&_page=${page}` : '';
     const _limit = limit ? `&_limit=${limit}` : '';
     axios.get(`${url}/${resource}?format=${format}${_page}${_limit}`)
-      .then((res) => {
-        
-        console.log(res.headers)
-        if (res.headers.link) console.log(res.headers)
-        setCourses(res.data);
+      .then((res) => { 
+        setCourses(
+          res.data
+             .map((course,index) => ({...course, key:index }))
+        ); // add key prop for correct rendering into a list
         setIsLoading(false);
       })
-      .then((data) => {
-       
+      .catch((error) => {
+        console.log('couldn\'t fetch courses')
       });
   }, [url, resource, format, page, limit]);
 

@@ -33,6 +33,7 @@ const AddCourse = () => {
 
   return (
     <>
+      <Title level={2}>Add Course</Title>
       <Form
         labelCol={{
           span: 4,
@@ -42,8 +43,9 @@ const AddCourse = () => {
         }}
         layout="vertical"
         onFinish={onFinish}
+        style={{ padding:'16px', marginTop: '16px', backgroundColor: 'white' }}
+        className="site-card"
       >
-        <Title level={2}>Add Course</Title>
         <Form.Item name="title" label="Title">
           <Input />
         </Form.Item>

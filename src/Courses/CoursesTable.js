@@ -7,25 +7,25 @@ const columns = [
   {
     title: 'Title',
     dataIndex: 'title',
-    key: 'title',
+    // key: 'title',
     render: text => <a>{text}</a>,
     width: '30%'
   },
   {
     title: 'Bookable',
     dataIndex: 'open',
-    key: 'open',
+    // key: 'open',
     align: 'center',
     render: (open) => (open ? <CheckOutlined style={{color:"green"}} /> : 'No')
   },
   {
     title: 'Price',
     dataIndex: ['price','normal'],
-    key: 'price',
+    // key: 'price',
   },
   {
     title: 'Date',
-    key: 'dates',
+    // key: 'dates',
     dataIndex: 'dates',
     width: '30%',
     render: dates => (
@@ -36,7 +36,7 @@ const columns = [
   },
   {
     title: 'Action',
-    key: 'id',
+    // key: 'id',
     dataIndex: 'id',
     render: (id) => (
         <Link to={`/courses/${id}`}><Button type="primary">View details</Button></Link>
@@ -48,7 +48,8 @@ const CoursesTable = () => {
   const [courses, isLoading] = useCourses({
     url: "http://localhost:3001",
     format: "json",
-    resource: "courses"
+    resource: "courses",
+    limit: "5"
   });
 
     return (
@@ -59,7 +60,7 @@ const CoursesTable = () => {
         <Table 
           className="courses-table site-card" 
           title={() => {
-            return (<h3><strong>Five newest courses</strong></h3>)
+            return (<h3 style={{color:"white"}}><strong>Five newest courses</strong></h3>)
           }} 
           columns={columns} 
           dataSource={courses}
